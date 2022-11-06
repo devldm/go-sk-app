@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "go-sk-app",
-    "slug": "go-sk-app",
+    "name": "GO-SK",
+    "slug": "GO-SK",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
