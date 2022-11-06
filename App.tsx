@@ -6,7 +6,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <Navigation />
-      <StatusBar backgroundColor="white" />
+      <StatusBar backgroundColor="#121212" style={"light"} />
     </SafeAreaProvider>
   );
 }

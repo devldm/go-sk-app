@@ -6,6 +6,7 @@ import { Job, RootStackScreenProps } from "../types";
 import RenderHtml, { HTMLSource } from "react-native-render-html";
 import { ScrollView, useWindowDimensions } from "react-native";
 import CustomButton from "../components/CustomButton";
+import JobDetails from "../components/JobDetails";
 
 export default function JobScreen({
   route,
@@ -48,28 +49,33 @@ export default function JobScreen({
       <ScrollView
         contentContainerStyle={{
           paddingBottom: 50,
-          paddingLeft: 5,
-          paddingRight: 5,
+          paddingLeft: 15,
+          paddingRight: 15,
         }}
       >
         <View className="px-2 pb-4">
-          <Text className="text-4xl text-white">{jobState.job_title}</Text>
-          <Text className="text-xl italic text-white">{jobState.location}</Text>
-          <Text className="text-lg text-white">{jobState.company_name}</Text>
+          <Text className="text-3xl text-white">{jobState.job_title}</Text>
+          <Text className="text-xl italic text-gray-400">
+            {jobState.location}
+          </Text>
+          <Text className="text-lg text-white mt-2">
+            {jobState.company_name}
+          </Text>
         </View>
-        <View className="mb-2 mt-1 h-px w-full bg-gray-400" />
+        <View className="mb-1 h-px w-full bg-gray-400" />
         <RenderHtml
           baseStyle={{
             color: "white",
             fontSize: 18,
             width: "95%",
             alignSelf: "center",
-            marginBottom: 30,
+            marginBottom: 10,
           }}
           source={source}
           contentWidth={width}
           enableExperimentalMarginCollapsing={true}
         />
+        <JobDetails job={jobState} />
         <CustomButton buttonText="Apply" applyUrl={jobState.apply_url!} />
       </ScrollView>
     </SafeAreaView>
