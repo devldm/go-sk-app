@@ -8,7 +8,7 @@ export default function JobsPreview({ job }: { job: Job }) {
 
   return (
     <View className="border-2 border-neutral-700 rounded-md w-11/12 self-center mb-2 bg-neutral-900">
-      <View className=" rounded-md w-full self-center bg-neutral-900 p-2">
+      <View className="rounded-md w-full self-center bg-neutral-900 p-2">
         <View>
           <Text className="text-2xl text-white font-bold  w-11/12 overflow-ellipsis">
             {job.job_title}

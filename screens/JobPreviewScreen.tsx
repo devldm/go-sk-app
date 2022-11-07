@@ -1,16 +1,11 @@
-import {
-  Pressable,
-  ScrollView,
-  FlatList,
-  StyleSheet,
-  ActivityIndicator,
-} from "react-native";
+import { Pressable, FlatList, ActivityIndicator } from "react-native";
 import JobsPreview from "../components/JobPreview";
 import { Text, View } from "react-native";
 import { RootStackScreenProps, Job } from "../types";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
 import { jobs } from "../mockData";
+import NoJobsAlert from "../components/NoJobsAlert";
 
 export default function JobsPreviewScreen({
   navigation,
@@ -47,7 +42,9 @@ export default function JobsPreviewScreen({
             className="justify-center flex-1"
           />
         )}
-        {!isLoading && (
+        {!isLoading && jobState.length <= 0 && <NoJobsAlert />}
+
+        {!isLoading && jobState.length > 0 && (
           <FlatList
             className=""
             contentContainerStyle={{
