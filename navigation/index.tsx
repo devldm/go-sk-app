@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useColorScheme } from "nativewind";
 import JobPreviewScreen from "../screens/JobPreviewScreen";
 import JobScreen from "../screens/JobScreen";
 import { RootStackParamList } from "../types";
@@ -15,21 +16,25 @@ export default function Navigation({}: {}) {
 }
 
 function RootNavigator() {
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+
+  const isDarkMode = colorScheme === "dark";
+
   return (
     <Stack.Navigator
       initialRouteName="GO-SK"
       screenOptions={{
         headerTitleAlign: "center",
-        headerTintColor: "white",
+        headerTintColor: isDarkMode ? "white" : "black",
         headerShadowVisible: true,
         headerStyle: {
-          backgroundColor: "#121212",
+          backgroundColor: isDarkMode ? "#121212" : "white",
         },
         headerTitleStyle: {
-          color: "white",
+          color: isDarkMode ? "white" : "black",
         },
         contentStyle: {
-          backgroundColor: "#121212",
+          backgroundColor: isDarkMode ? "#121212" : "white",
         },
       }}
     >

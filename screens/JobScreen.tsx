@@ -7,6 +7,7 @@ import RenderHtml, { HTMLSource } from "react-native-render-html";
 import { ScrollView, useWindowDimensions } from "react-native";
 import CustomButton from "../components/CustomButton";
 import JobDetails from "../components/JobDetails";
+import { useColorScheme } from "nativewind";
 
 export default function JobScreen({
   route,
@@ -21,6 +22,7 @@ export default function JobScreen({
   };
   const [jobState, setJobState] = useState(emptyJob);
   const [isLoading, setIsLoading] = useState(true);
+  const { colorScheme } = useColorScheme();
 
   const source = {
     html: `${jobState.job_description}`,
@@ -64,11 +66,13 @@ export default function JobScreen({
           }}
         >
           <View className="px-2 pb-4">
-            <Text className="text-3xl text-white">{jobState.job_title}</Text>
+            <Text className="text-3xl text-black dark:text-white">
+              {jobState.job_title}
+            </Text>
             <Text className="text-xl italic text-gray-400">
               {jobState.location}
             </Text>
-            <Text className="text-lg text-white mt-2">
+            <Text className="text-lg  mt-2 text-black dark:text-white">
               {jobState.company_name}
             </Text>
           </View>
@@ -76,7 +80,7 @@ export default function JobScreen({
           {jobState.job_description !== null && (
             <RenderHtml
               baseStyle={{
-                color: "white",
+                color: colorScheme === "dark" ? "white" : "black",
                 fontSize: 18,
                 width: "95%",
                 alignSelf: "center",
@@ -84,7 +88,7 @@ export default function JobScreen({
               }}
               source={source}
               contentWidth={width}
-              // enableExperimentalMarginCollapsing={true}
+              enableExperimentalMarginCollapsing={true}
             />
           )}
           <JobDetails job={jobState} />

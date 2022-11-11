@@ -66,8 +66,10 @@ export default function JobsPreviewScreen({
             ListHeaderComponent={() => (
               <View className="px-6  pb-9 w-full">
                 <View>
-                  <Text className="text-5xl font-bold text-white">Jobs</Text>
-                  <Text className="text-white text-xl">
+                  <Text className="text-5xl font-bold  dark:text-white">
+                    Jobs
+                  </Text>
+                  <Text className=" dark:text-white text-xl">
                     We partner with firms to get the best roles for people
                     looking to relocate to Seoul.
                   </Text>
